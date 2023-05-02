@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class ReuseableCard extends StatelessWidget {
-  ReuseableCard({required this.colour, this.cardChild, this.onPressed});
+  ReuseableCard(
+      {super.key, required this.colour, this.cardChild, this.onPressed});
 
   final Color? colour;
   final Widget? cardChild;
@@ -11,12 +13,12 @@ class ReuseableCard extends StatelessWidget {
     return GestureDetector(
       onTap: onPressed,
       child: Container(
-        child: cardChild,
-        margin: EdgeInsets.all(15.0),
+        margin: const EdgeInsets.all(15.0),
         decoration: BoxDecoration(
           color: colour, //0xFF1D1E33
           borderRadius: BorderRadius.circular(10.0),
         ),
+        child: cardChild,
       ),
     );
   }
